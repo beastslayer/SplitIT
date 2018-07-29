@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "934835220433",
+    "firebase_url": "https://split-9de8b.firebaseio.com",
+    "project_id": "split-9de8b",
+    "storage_bucket": "split-9de8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:934835220433:android:f055b418fe77918c",
+        "android_client_info": {
+          "package_name": "zerocoms.splitit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "934835220433-p1kljg5srk5s3revcdsnkevemn8b5r7e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfw-gsiOE4yisn-QKHWBGN6Zx5o-kgZZ8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

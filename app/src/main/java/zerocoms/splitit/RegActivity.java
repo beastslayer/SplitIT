@@ -18,14 +18,14 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class RegActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    String memail, mpassword;
+    String memail, mpassword,conpass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg);
         final EditText Username,Email,ConfirmPassword;
-        final android.support.design.widget.TextInputEditText Password;
+        final EditText Password;
         //initializing the object of Firebase Authentication
 
         mAuth = FirebaseAuth.getInstance();
@@ -54,29 +54,34 @@ public class RegActivity extends AppCompatActivity {
         btReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 memail=Email.getText().toString();
                 mpassword=Password.getText().toString();
-                //ConfirmPassword.getText().toString();
-                mAuth.createUserWithEmailAndPassword(memail, mpassword)
-                        .addOnCompleteListener(RegActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    // Sign in success, update UI with the signed-in user's information
-                                    Log.d("Reg Status", "createUserWithEmail:success");
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                   // updateUI(user);
-                                    Toast.makeText(RegActivity.this,"Successfull",Toast.LENGTH_LONG).show();
-                                } else {
-                                    // If sign in fails, display a message to the user.
-                                    Log.w("Reg Status", "createUserWithEmail:failure", task.getException());
-                                    Toast.makeText(RegActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                                   // updateUI(null);
-                                }
+                conpass=ConfirmPassword.getText().toString();
 
-                                // ...
-                            }
-                        });
+                if(memail!=null && mpassword!=null && (conpass.equals(mpassword)))
+                {
+                    mAuth.createUserWithEmailAndPassword(memail, mpassword)
+                            .addOnCompleteListener(RegActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        // Sign in success, update UI with the signed-in user's information
+                                        Log.d("Reg Status", "createUserWithEmail:success");
+                                        FirebaseUser user = mAuth.getCurrentUser();
+                                        // updateUI(user);
+                                        Toast.makeText(RegActivity.this, "Successfull", Toast.LENGTH_LONG).show();
+                                    } else {
+                                        // If sign in fails, display a message to the user.
+                                        Log.w("Reg Status", "createUserWithEmail:failure", task.getException());
+                                        Toast.makeText(RegActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                                        // updateUI(null);
+                                    }
+
+                                    // ...
+                                }
+                            });
+                }
 
             }
         });

@@ -8,7 +8,7 @@
     android:background="#27727C  "
     >
 
-    <!--
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,22 +19,16 @@
         android:textSize="40dp" />
 
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="190dp"
-        android:layout_height="190dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="169dp"
-        android:src="@drawable/apple1"
-        android:id="@+id/Logo1"/>
-      -->
+
+
     <LinearLayout
         android:layout_width="wrap_content"
-        android:orientation="horizontal"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
 
-        android:layout_marginTop="60dp"
-        android:layout_centerHorizontal="true">
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="22dp"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btReg"

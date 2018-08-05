@@ -23,7 +23,10 @@
         </activity>
         <activity android:name=".RegActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".DashBoard"></activity>
+        <activity android:name=".DashBoard" />
+        <activity android:name=".newTrip" />
+        <activity android:name=".mkfriends" />
+        <activity android:name=".previoustrips"></activity>
     </application>
 
 </manifest>

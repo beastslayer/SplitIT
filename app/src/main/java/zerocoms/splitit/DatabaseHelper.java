@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.ColorSpace;
+import android.os.strictmode.SqliteObjectLeakedViolation;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String Query_Trip_list, Query_friend_list;
         //friend_list is the name of the godDamn friendList Table
 
-        Query_friend_list="create table friend_list (name text, age integer, sex char(1))";
+        Query_friend_list="create table friend_list (name text, age integer, sex tinytext)";
         sqLiteDatabase.execSQL(Query_friend_list);
 
         //trip_list is name of table for trip_list
@@ -75,6 +76,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.execSQL(Query_add_expense_existing_friend);
         }
 
+    }
+
+    public void makefriend(String name,String sex,int age)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        String query_make_friends="insert into friend_list values ("+name+","+age+","+sex+")";
+        db.execSQL(query_make_friends);
+    }
+
+    public void deleteFriend(String name)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        String deleteFrnd="delete from friend_list where name="+name;
+        db.execSQL(deleteFrnd);
     }
 
 }

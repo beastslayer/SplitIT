@@ -58,7 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         int amt=amount/friends.size();
         int friendNumber=0;
         String Query_add_expense_existing_amount="update table "+ Trip_name+"_settlement set amount = amount+"+amount+" where spender like "+spender;
-        String Query_add_expense_existing_friend=" update table "+Trip_name+"_settlement set "+friends.get(friendNumber)+"="+friends.get(friendNumber)+amt+" where spender ="+spender;
+        String Query_add_expense_existing_friend=" update table "+Trip_name+"_settlement set "+friends.get(friendNumber)+"="+Integer.parseInt(friends.get(friendNumber).toString())+amt+" where spender ="+spender;
         String Query_add_expense_new_amount="insert into "+Trip_name+"_settlement (spender,amount) values ("+spender+','+amount+")";
         String Query_add_expense_new_friend="update table "+Trip_name+"_settlement set "+friends.get(friendNumber)+"="+ friends.get(friendNumber)+amt;
         if(newspender)
@@ -70,9 +70,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         {
             db.execSQL(Query_add_expense_existing_amount);
         }
-
+        for (friendNumber=0;friendNumber<friends.size();friendNumber++)
+        {
+            db.execSQL(Query_add_expense_existing_friend);
+        }
 
     }
 
 }
-7

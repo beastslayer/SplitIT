@@ -71,6 +71,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="178dp"
         android:gravity="center"
+        android:id="@+id/etDestination"
         android:hint="DESTINATION" />
 
     <TextView
@@ -84,6 +85,7 @@
         android:textSize="18dp"/>
 
     <EditText
+        android:id="@+id/etDays"
         android:layout_width="101dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -113,16 +115,10 @@
         <Button
             android:layout_width="122dp"
             android:layout_height="45dp"
+            android:id="@+id/btExisting"
             android:background="@drawable/bluebt"
-            android:text="Add Existing"
+            android:text="Add Friends"
             android:textColor="#ffffff" />
 
-        <Button
-            android:layout_width="128dp"
-            android:layout_height="45dp"
-            android:layout_marginLeft="5dp"
-            android:background="@drawable/orangebt"
-            android:text="Add New"
-            android:textColor="#ffffff" />
     </LinearLayout>
 </RelativeLayout>
